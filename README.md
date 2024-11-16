@@ -167,7 +167,7 @@ Or simply:
 ```bash
 python DanceDemo.py
 ```
-## How it works:
+**How it works:**
 Command-line Arguments:
 
 - **--gen_type:** Specifies the generation type, with valid values (1, 2, 3, 4).
