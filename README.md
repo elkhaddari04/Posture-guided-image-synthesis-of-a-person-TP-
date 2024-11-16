@@ -156,15 +156,25 @@ python GenGAN.py data/taichi1.mp4
 ```
 
 ### Running Inference
+You can now run the script from the command line with different parameters:
+```bash
+python DanceDemo.py --gen_type 3 --video_path "data/karate1.mp4"
 
-```python
-from DanceDemo import DanceDemo
-
-# Choose model type (1=Nearest, 2=VanillaNN-Skeleton, 3=VanillaNN-Drawing, 4=GAN)
-demo = DanceDemo("source_video.mp4", model_type=4)
-demo.draw()
 ```
+Or simply:
 
+
+```bash
+python DanceDemo.py
+```
+## How it works:
+Command-line Arguments:
+
+- **--gen_type:** Specifies the generation type, with valid values (1, 2, 3, 4).
+- **--video_path:** Sets the path to the video file.
+Default Values:
+
+If no arguments are provided, it defaults to **GEN_TYPE = 1** and **video_path = "data/taichi2_full.mp4"**.
 
 ## Current Problems
 - Videos can look choppy sometimes
