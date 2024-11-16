@@ -144,8 +144,6 @@ Training Configuration:
 ### Model Training
 
 ```bash
-# Basic nearest neighbor
-python GenNearest.py data/taichi1.mp4
 
 # VanillaNN (Direct Skeleton)
 python GenVanillaNN.py data/taichi1.mp4 false 1
