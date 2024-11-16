@@ -14,6 +14,7 @@ from Skeleton import Skeleton
 from GenNearest import GenNeirest
 from GenVanillaNN import *
 from GenGAN import *
+import argparse
 
 
 class DanceDemo:
@@ -71,14 +72,21 @@ class DanceDemo:
 
 
 if __name__ == '__main__':
-    # NEAREST = 1
-    # VANILLA_NN_SKE = 2
-    # VANILLA_NN_Image = 3
-    # GAN = 4
-    GEN_TYPE = 2
-    ddemo = DanceDemo("data/taichi2_full.mp4", GEN_TYPE)
-    #ddemo = DanceDemo("data/taichi1.mp4")
-    #ddemo = DanceDemo("data/karate1.mp4")
-    print("ddddddddddddddddddddddddddddd")
 
+    parser = argparse.ArgumentParser(description="Run the DanceDemo with configurable parameters.")
+    parser.add_argument(
+        '--gen_type', type=int, default=1, choices=[1, 2, 3, 4],
+        help="Generation type: 1 = NEAREST, 2 = VANILLA_NN_SKE, 3 = VANILLA_NN_Image, 4 = GAN (default: 1)"
+    )
+    # python script_name.py --gen_type 3 --video_path "data/karate1.mp4"
+
+    parser.add_argument(
+        '--video_path', type=str, default="data/taichi2_full.mp4",
+        help="Path to the video file (default: data/taichi2_full.mp4)"
+    )
+
+    args = parser.parse_args()
+
+    ddemo = DanceDemo(args.video_path, args.gen_type)
     ddemo.draw()
+
